@@ -5,7 +5,10 @@
 # Fail on errors
 set -e
 
-projects=( "1_quickstart/complete/quickstart" )
+projects=(
+  "1_quickstart/complete/quickstart"
+  "2_maven/example/mavenproj"
+)
 
 # Build all projects
 for project in "${projects[@]}"; do
@@ -14,10 +17,10 @@ for project in "${projects[@]}"; do
 
     if [[ $CI = "true" ]]; then
       # Running in CI, use Maven for caching purposes
-      mvn clean verify
+      (mvn clean verify)
     else
       # Running locally, use wrapper
-      . mvnw clean verify
+      (. mvnw clean verify)
     fi
 
     cd -
