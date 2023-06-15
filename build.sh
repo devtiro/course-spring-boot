@@ -9,7 +9,7 @@ projects=( "1_quickstart/complete/quickstart" )
 
 # Build all projects
 for project in "${projects[@]}"; do
-    cd "./${project}"
+    cd "${project}"
     . mvnw clean verify
     cd -
 done
