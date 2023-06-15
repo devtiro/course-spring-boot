@@ -9,9 +9,16 @@ projects=( "1_quickstart/complete/quickstart" )
 
 # Build all projects
 for project in "${projects[@]}"; do
-    ls -l
-    echo "Navigating to \"${project}\""
+    echo "Building to \"${project}\"..."
     cd "./${project}/"
-    . mvnw clean verify
+
+    if [[ $CI = "true" ]]; then
+      # Running in CI, use Maven for caching purposes
+      mvn clean verify
+    else
+      # Running locally, use wrapper
+      . mvnw clean verify
+    fi
+
     cd -
 done
