@@ -11,7 +11,7 @@ projects=( "1_quickstart/complete/quickstart" )
 for project in "${projects[@]}"; do
     ls -l
     echo "Navigating to \"${project}\""
-    cd "${project}"
+    cd "./${project}/"
     . mvnw clean verify
     cd -
 done
