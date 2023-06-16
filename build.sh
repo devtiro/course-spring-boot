@@ -8,6 +8,8 @@ set -e
 projects=(
   "1_quickstart/complete/quickstart"
   "2_maven/example/mavenproj"
+  "4_dependencyinjection/no_di/colours"
+  "4_dependencyinjection/with_di/colours"
 )
 
 # Build all projects
